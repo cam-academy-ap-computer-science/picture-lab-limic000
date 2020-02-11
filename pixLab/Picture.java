@@ -168,7 +168,8 @@ public class Picture extends SimplePicture
         botPixel.setColor(topPixel.getColor());
       }
     } 
-  }
+  } 
+  
   
   public void mirrorVerticalRightToLeft()
   {
