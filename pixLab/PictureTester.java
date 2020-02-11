@@ -57,6 +57,19 @@ public class PictureTester
     motorcycle.explore();
   }
   
+  public static void testGrayscale() {
+	  Picture motorcycle = new Picture("images\\redMotorcycle.jpg");
+	  motorcycle.explore();
+	  motorcycle.grayscale();
+	  motorcycle.explore();
+  }
+  
+  public static void testFixUnderwater() {
+	  Picture water = new Picture("images\\water.jpg");
+	  water.explore();
+	  water.fix();
+	  water.explore();
+  }
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -89,15 +102,15 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    testKeepOnlyBlue();
+    //testZeroBlue();
+    //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    testNegate();
+    //testNegate();
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
-    testMirrorVerticalRightToLeft();
+    //testMirrorVerticalRightToLeft();
     testMirrorHorizontal();
     //testMirrorTemple();
     //testMirrorArms();

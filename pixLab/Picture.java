@@ -164,7 +164,7 @@ public class Picture extends SimplePicture
       for (int col = 0; col < pixels[0].length; col++)
       {
         topPixel = pixels[row][col];
-        botPixel = pixels[length - 1 - col][row];
+        botPixel = pixels[length - 1 - row][col];
         botPixel.setColor(topPixel.getColor());
       }
     } 
@@ -187,6 +187,27 @@ public class Picture extends SimplePicture
     } 
   }
   
+  
+  public void grayscale() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (Pixel[] rowArray : pixels) {
+		  for (Pixel pixelobj : rowArray) {
+			  int average = (pixelobj.getRed() + pixelobj.getGreen() + pixelobj.getBlue())/3;
+			  pixelobj.setRed(average);
+			  pixelobj.setGreen(average);
+			  pixelobj.setBlue(average);
+		  }
+	  }
+  }
+  
+  public void fix() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (Pixel[] rowArray : pixels) {
+		  for (Pixel pixelobj : rowArray) {
+			  pixelobj.setRed(0);
+		  }
+	  }
+  }
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
