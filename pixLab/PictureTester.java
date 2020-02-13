@@ -57,6 +57,14 @@ public class PictureTester
     motorcycle.explore();
   }
   
+  public static void mirrorHorizontalBotToTop()
+  {
+    Picture motorcycle = new Picture("images\\redMotorcycle.jpg");
+    motorcycle.explore();
+    motorcycle.mirrorHorizontalBotToTop();
+    motorcycle.explore();
+  }
+  
   public static void testGrayscale() {
 	  Picture motorcycle = new Picture("images\\redMotorcycle.jpg");
 	  motorcycle.explore();
@@ -77,6 +85,14 @@ public class PictureTester
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
+  }
+  
+  public static void testMirrorArms()
+  {
+    Picture snowman = new Picture("images\\snowman.jpg");
+    snowman.explore();
+    snowman.mirrorArms();
+    snowman.explore();
   }
   
   /** Method to test the collage method */
@@ -111,10 +127,10 @@ public class PictureTester
     //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorVerticalRightToLeft();
-    testMirrorHorizontal();
-    
+    //testMirrorHorizontal();
+    //mirrorHorizontalBotToTop();
     //testMirrorTemple();
-    //testMirrorArms();
+    testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();

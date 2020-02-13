@@ -170,6 +170,23 @@ public class Picture extends SimplePicture
     } 
   } 
   
+  public void mirrorHorizontalBotToTop()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel botPixel = null;
+    int length = pixels.length;
+    for (int row = 0; row < length / 2; row++)
+    {
+      for (int col = 0; col < pixels[0].length; col++)
+      {
+        topPixel = pixels[row][col];
+        botPixel = pixels[length - 1 - row][col];
+        topPixel.setColor(botPixel.getColor());
+      }
+    } 
+  } 
+  
   
   public void mirrorVerticalRightToLeft()
   {
@@ -229,6 +246,31 @@ public class Picture extends SimplePicture
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
+        count++;
+      }
+    }
+    System.out.println(count);
+  }
+  
+  public void mirrorArms()
+  {
+	  //163 starts col 206
+    int mirrorPoint = 193;
+    Pixel topPixel = null;
+    Pixel botPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    
+    // loop through the rows
+    for (int row = 163; row < mirrorPoint; row++)
+    {
+      // loop from 13 to just before the mirror point
+      for (int col = 168; col < 195; col++)
+      {
+        
+        topPixel = pixels[row][col];      
+        botPixel = pixels[mirrorPoint+(mirrorPoint - col)]                       
+                         [col];
+        botPixel.setColor(topPixel.getColor());
       }
     }
   }
