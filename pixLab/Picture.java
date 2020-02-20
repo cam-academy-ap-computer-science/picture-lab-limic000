@@ -359,14 +359,14 @@ for (int fromCol = fromStartCol, toCol = toStartCol;
   {
     Picture flower1 = new Picture("images\\flower1.jpg");
     Picture flower2 = new Picture("images\\flower2.jpg");
-    this.copy2(flower1,0,0,110,110,111,0);
-    this.copy2(flower2,100,0);
-    this.copy2(flower1,200,0);
+    this.copy(flower1,0,0);
+    this.copy(flower2,100,0);
+    this.copy(flower1,200,0);
     Picture flowerNoBlue = new Picture(flower2);
     flowerNoBlue.zeroBlue();
-    this.copy2(flowerNoBlue,300,0);
-    this.copy2(flower1,400,0);
-    this.copy2(flower2,500,0);
+    this.copy(flowerNoBlue,300,0);
+    this.copy(flower1,400,0);
+    this.copy(flower2,500,0);
     this.mirrorVertical();
     this.write("images\\collage.jpg");
   }
@@ -395,6 +395,23 @@ for (int fromCol = fromStartCol, toCol = toStartCol;
         else
           leftPixel.setColor(Color.WHITE);
       }
+    }
+    Pixel topPixel = null;
+    Pixel bottomPixel;
+    Pixel[][] pixels2 = this.getPixels2D();
+    Color topColor = null;
+    for (int col = 0; col < pixels2[0].length; col++) {
+    	for (int row = 0; row < pixels2.length-1; row++) {
+    		topPixel = pixels[row][col];
+    		bottomPixel = pixels[row+1][col];
+    		if (bottomPixel.colorDistance(topColor) > edgeDist) {
+    			bottomPixel.setColor(Color.BLACK);
+    		}
+    		else {
+    			bottomPixel.setColor(Color.WHITE);
+    		}
+    			
+    	}
     }
   }
   
